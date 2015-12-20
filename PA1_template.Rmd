@@ -119,7 +119,7 @@ guesscheck<-ggplot(stepsperday2,aes(x=totalsteps))+
 print(guesscheck)
 ```
 
-Here's the histogram for my fellow pedants:
+Here's the histogram:
 ```{r imputedhist}
 forpeoplewhoreallywanttoseeahistogram<-ggplot(stepsperday2,aes(x=guesstotalsteps))+
     geom_histogram()+
@@ -132,7 +132,7 @@ The mean and median total steps are `r mean(stepsperday2$totalsteps,na.rm=TRUE)`
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
-Looks like activity is higher on the weekends, particularly in the middle of the day, although it is lower early in the morning just after waking.
+Activity higher on the weekends, particularly in the middle of the day, although it is lower early in the morning just after waking.
 
 ```{r weekends}
 paindays= c("Monday","Tuesday","Wednesday","Thursday","Friday")

@@ -1,19 +1,20 @@
 ---
----
 title: "Reproducible Research: Peer Assessment 1"
 output: 
   html_document:
     keep_md: true
 ---
 
-```{r}
+
+```r
 #Header code, setup required libraries
 library(ggplot2)
 library(plyr)
 ```
 
 ## Loading and preprocessing the data
-```{r}
+
+```r
 #read in
 activity<-read.csv("activity.csv",colClasses=c("integer","Date","integer"))
 #q1
@@ -24,12 +25,11 @@ stepsperday<-ddply(activity, c("date"),summarise,
 stepsper5min<-ddply(activity, c("interval"),summarise,
                     meansteps = mean(steps,na.rm=TRUE)
                     )
-
 ```
 
 ## What is mean total number of steps taken per day?
 
-The mean total number of steps taken per day is `r mean(stepsperday$totalsteps, na.rm=TRUE)`.  The median number of steps taken per day is `r median(stepsperday$totalsteps)`(NA's omitted).
+The mean total number of steps taken per day is 9354.2295.  The median number of steps taken per day is 10395(NA's omitted).
 
 ```{r stepshist}
 stepshist<-ggplot(stepsperday,aes(x=totalsteps))+geom_histogram()+
